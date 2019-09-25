@@ -1,0 +1,28 @@
+Objetivo: implementar um servidor de proxy WEB, versão 1.0 do
+protocolo http (RFC 1945)
+How to do ? 
+    1. Para cada requisição de acesso a pagina, o seu navegador
+    de internet vai realizar uma requisicao ao servidor local de proxy
+    usando sockets
+    2. Verificar se o acesso é per mitido(txt)
+    3. Se a pagina web não esta armazenada localmente em cache
+    (todo o arquivo de cache deve ter vida util de 5 min)
+    4. Buscar pagina da web remota, armazená-la em cache e devolver 
+    a requisicao ao usuario
+
+Impementacion details 
+
+    - Aceitar e encaminhar requisicoes http 
+    - Manipular requisicoes concorrentes usando threads
+    - Manipular usando o get (outros metodos de requisicao recebidos pelo proxy deve
+    mostrar um erro no log com a mensagem - Erro: Não implementado (501))
+    - As requisicoes podem retornar diferentes tipos de objetos, não apenas textos 
+    Cache : 
+        - Implementar cache e politicas 
+        - Multiplos clientes e gravar log das requisicoes e respostas(indicando se foi
+        atingido pelo cache ou buscado pelo servidor)
+    Teste: 
+        - Teste se imagens, arquivos de texto, pdf
+
+How to run ?
+ python main.py www.w3schools.com 8080
